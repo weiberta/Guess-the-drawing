@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Drawing Without Friends!</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="icon" href="/img/favicon.png"/>
+    <!-- <link rel="stylesheet" href="/css/styles.min.css"/>
+    <link rel="stylesheet" href="/css/chat.css"/>-->
+    <link rel="stylesheet" href="/css/canvas.css"/>
+</head>
+
+<body>
+<nav>
+    <h1><b>DRAWING WITH FRIENDS</b></h1>
+</nav>
+
+<div id="drawingCanvas">
+
+    <div class="page-wrapper">
+        <div id="sentence">
+            <p id="instruction"><b>DRAW THIS SENTENCE:</b></p>
+            <div id="sentenceInput">who is joe ? </div>
+        </div>
+
+        <div class="right-float"></div>
+        <div id="canvas-input">
+            <canvas id="canvas"></canvas>
+        </div>
+        <div class="tools">
+            <div class="color-field" datacolor="#000000" style="background:#000000;"></div>
+            <div class="color-field" datacolor="#ffffff" style="background:#ffffff;"></div>
+            <div class="color-field" datacolor="#d6b49d" style="background:#d6b49d;"></div>
+            <div class="color-field" datacolor="#ac0000" style="background:#ac0000;"></div>
+            <div class="color-field" datacolor="#d67317" style="background:#d67317;"></div>
+            <div class="color-field" datacolor="#eccf02" style="background:#eccf02;"></div>
+            <div class="color-field" datacolor="#03bf3e" style="background:#03bf3e;"></div>
+            <div class="color-field" datacolor="#002bcd" style="background:#002bcd;"></div>
+            <div class="color-field" datacolor="#9d03a2" style="background:#9d03a2;"></div>
+
+            <input onInput="draw_color = this.value" type="color" class="color-picker" value="#5f9ea0">
+            <input type="range" name="Slider" min="1" max="60" value="10" step="5" class="pen-range"
+                   onInput="drawWidth = this.value">
+        </div>
+        <div id=buttons>
+            <button id="undo" type="button" class="button">Undo</button>
+            <button id="clear" type="button" class="button">Clear</button>
+            <button id="save" type="button" class="button">Save</button>
+        </div>
+    </div>
+
+
+
+    <div id="sidebar" class="chat__sidebar"></div>
+</div>
+
+<div class="chat__main">
+    <div id="messages" class="chat__messages"></div>
+</div>
+
+<script id="msg-template" type="text/html">
+    <div class="message">
+        <p>
+            <span class="message__name">{{username}}</span>
+            <span class="message__meta">{{createdAt}}</span>
+        </p>
+        <p>{{msg}}</p>
+    </div>
+</script>
+
+<script id="user-rooms" type="text/html">
+    <h2 class="room-title">Welcome in room: {{room}}</h2>
+    <h3 class="list-title">   JOINED USER </h3>
+
+    <ul class="users">
+        {{#users}}
+        <li> {{username}}</li>
+        {{/users}}
+    </ul>
+</script>
+
+
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.6.0/qs.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/chat.js"></script>
+
+</body>
+
+
+
+</html>

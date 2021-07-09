@@ -1,0 +1,107 @@
+* {
+    box-sizing: border-box
+}
+
+body {
+    text-align: center;
+    font-family: Helvetica, Arial, sans-serif;
+    color: #4f000b;
+    margin: 0;
+    background-color: #ce4257;
+    font-size:20px;
+}
+
+nav {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #720026;
+    padding: 5px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+fieldset {
+    border: 5px solid #4f000b;
+    border-radius: 10px;
+    background-color: #720026;
+    width: 50%;
+    margin: 0 auto;
+}
+
+#form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-top: 25px;
+    font-weight: bold;
+    color: #ce4257;
+}
+
+img {
+    margin: 0 auto;
+    margin-top: 15px;
+}
+
+input {
+    border: 5px solid #4f000b;
+    border-radius: 10px;
+    text-align: center;
+    padding: 15px;
+    margin-bottom: 25px;
+    margin-top: 10px;
+    color: #4f000b;
+    font-weight: bold;
+    font-size: larger;
+}
+
+h1 {
+    font-size: 250%;
+    margin-bottom: 0px;
+}
+
+#createGame {
+    color: white;
+    background-color: #4f000b;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 20%;
+    padding: 5px;
+    border-radius: 10px;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+#createGame:hover {
+    background-color: #720026;
+    cursor: pointer;
+}
+
+#footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 20px;
+}
+
+@media (max-width: 850px) {
+    nav {
+        margin-bottom: 0px;
+    }
+    h1 {
+        font-size: 380%;
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+    #createGame {
+        width: 50%;
+    }
+    fieldset {
+        width: 85%;
+    }
+    img {
+        width: 100px;
+        margin-top: 5px;
+        margin-bottom: -10px;
+    }
+}

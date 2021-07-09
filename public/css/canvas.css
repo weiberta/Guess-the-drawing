@@ -1,0 +1,236 @@
+body {
+    text-align: center;
+    background-color: #ce4257;
+    color: #4f000b;
+    margin: 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+h3 {
+    font-weight: bold;
+}
+
+nav {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #720026;
+    padding: 5px;
+}
+
+#sentence {
+    width: 100%;
+}
+
+#instruction {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:25px;
+    margin-top: -1%;
+}
+
+#sentenceInput {
+    margin-top: -10px;
+    margin-bottom: 10px;
+    font-size: larger;
+}
+
+.page-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 2rem;
+    flex-direction: row;
+    max-width: 70%;
+    float:right;
+}
+
+/* —————————〈  C A N V A S  〉——————————— */
+
+canvas {
+    border: 5px solid #4f000b;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 98%;
+
+}
+
+/*---————〈 C O L O R  F I E L D S,  B U T T O N S  &  S L I D E R S 〉————----*/
+
+.tools {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    background: #720026;
+    border: 5px solid #4f000b;
+    border-radius: 10px;
+}
+
+.tools .color-field {
+    align-self: center;
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+    box-sizing: border-box;
+    border: 3px solid #4f000b;
+    border-radius: 10px;
+    margin: 15px;
+}
+
+.tools .color-field:hover {
+    border: 5px solid #4f000b;
+}
+
+button {
+    width: 100px;
+    height: 50px;
+
+
+    border: 5px solid #4f000b;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+    margin: 10px 0px 15px 50px;
+
+    background-color: #4f000b;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #720026;
+    border: 5px solid #720026;
+}
+
+#buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.color-picker {
+    margin: 0 10px;
+    height: 50px;
+    width: 100%;
+    border: 5px solid #4f000b;
+    border-radius: 10px;
+    background: transparent;
+}
+
+.pen-range {
+    width: 100%;
+    margin: 10px 10px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 10px;
+    height: 15px;
+    background: #4f000b;
+    outline: none;
+}
+
+.pen-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 5px solid #ce4257;
+    border-radius: 50%;
+    background: #ce4257;
+    cursor: pointer;
+}
+
+.pen-range::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border: 5px solid #ce4257;
+    border-radius: 50%;
+    background: #ce4257;
+    cursor: pointer;
+}
+
+/* —————————〈 E N D 〉——————————— */
+.chat__sidebar{
+    width: 20%;
+    max-width: 20%;
+}
+
+/* —————————〈 S I D E B A R 〉——————————— */
+
+.room-title {
+    color: white;
+    font-weight: 400;
+    font-size: 35px;
+    background: #4f000b;
+    padding: 24px;
+    text-align: center;
+}
+.users li {
+    font-size: 25px;
+    color: black;
+    padding: 15px;
+    list-style-type: none;
+    background: #838383;
+}
+.list-title {
+    font-weight: 500;
+    font-size: 18px;
+    margin-bottom: 10px;
+    padding: 0px 0px 0px 24px;
+    background: #ffffff;
+}
+/* —————————〈 end sidebar 〉——————————— */
+
+#footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 20px;
+}
+
+@media (min-width: 850px) {
+    .tools {
+        max-width: 90%;
+        margin-top: 1%;
+        max-height: 100%;
+
+    }
+}
+
+@media (max-width: 850px) {
+    #canvas-input {
+        justify-content: center;
+        margin: 0 auto;
+        margin-bottom: 5px;
+        width: 100%;
+        height: fit-content;
+    }
+    .tools {
+        flex-direction: row;
+        margin-bottom: 30px;
+    }
+    .tools .color-field {
+        width: 80px;
+        height: 40px;
+        min-height: 20px;
+        min-width: 40px;
+    }
+    .color-picker {
+        height: 0px;
+        min-height: 40px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        width: 20%;
+    }
+    .pen-range {
+        margin-bottom: 10px;
+        height: 10px;
+    }
+    .pen-range::-webkit-slider-thumb, .pen-range::-moz-range-thumb {
+        width: 10px;
+        height: 10px;
+    }
+    #buttons {
+        justify-content: center;
+        float: right;
+    }
+    #sentence {
+        text-align: center;
+    }
+}
