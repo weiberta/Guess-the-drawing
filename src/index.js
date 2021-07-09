@@ -9,9 +9,9 @@ const WSServer = require('express-ws')(app)
 const aWss = WSServer.getWss()
 
 const socketio = require('socket.io')
-const { generatemsg } = require('../../src/utils/messages')
+const { generatemsg } = require('./utils/messages')
 
-const { addUser, removeUser, getUser, getUserInRoom } = require('../../src/utils/users')
+const { addUser, removeUser, getUser, getUserInRoom } = require('./utils/users')
 
 
 const server = http.createServer(app)
