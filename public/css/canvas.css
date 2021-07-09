@@ -147,10 +147,8 @@ button:hover {
 
 /* —————————〈 E N D 〉——————————— */
 .chat__sidebar{
-    width: 20%;
-    max-width: 20%;
-}
-
+    width: 27.5%;
+    max-width: 27.5%;}
 /* —————————〈 S I D E B A R 〉——————————— */
 
 .room-title {
@@ -206,9 +204,9 @@ button:hover {
         margin-bottom: 30px;
     }
     .tools .color-field {
-        width: 80px;
+        width: 40px;
         height: 40px;
-        min-height: 20px;
+        min-height: 40px;
         min-width: 40px;
     }
     .color-picker {
@@ -226,6 +224,14 @@ button:hover {
         width: 10px;
         height: 10px;
     }
+    .chat__sidebar, span{
+        display: none;}
+
+    .page-wrapper{
+        float:  initial;
+        max-width: 100%;
+    }
+
     #buttons {
         justify-content: center;
         float: right;
