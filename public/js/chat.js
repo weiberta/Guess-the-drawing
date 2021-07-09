@@ -1,7 +1,5 @@
 const socket = io()
 const $messages = document.querySelector("#messages")
-// const $sentence = document.querySelector("#sentence")
-
 
 const msgtemplate = document.querySelector("#msg-template").innerHTML
 const sidebartemplate = document.querySelector('#user-rooms').innerHTML
@@ -18,17 +16,14 @@ const autoscroll = () => {
 
 
     const visibleHeight = $messages.offsetHeight
-
     const containerHeght = $messages.scrollHeight
-
     const scrollOffset = $messages.scrollTop + visibleHeight
 
     if (containerHeght - newmsgheight <= scrollOffset) {
         $messages.scrollTop = $messages.scrollHeight
-
     }
 }
-
+// how is the data processed and shown
 socket.on("message", (msg) => {
     console.log(msg)
     const html = Mustache.render(msgtemplate, {
@@ -54,26 +49,6 @@ socket.on("sentence", (msg) => {
     document.querySelector('#sentenceInput').innerHTML = msg
 
 })
-/*
-$msgForm.addEventListener("submit", (e) => {
-    e.preventDefault()
-
-    $msgFormButton.setAttribute('disabled', 'disabled')
-    let msg = document.querySelector("input").value
-
-    socket.emit("sendMessage", msg, (error) => {
-        $msgFormButton.removeAttribute('disabled')
-        $msgForInput.value = ''
-        $msgForInput.focus()
-        if (error) {
-            return console.log(error)
-        }
-
-        console.log('Message delivered!')
-    })
-})
-*/
-// const $msgForm=document.querySelector("#user")
 
 
 socket.emit('join', { username, room }, (error) => {
@@ -137,19 +112,15 @@ for (var i = 0; i < colorPickers.length; i++) {
     colorPicker.addEventListener("pointerup", changeColor, false);
 }
 
-
 /* ----———————————————〈 E V E N T - L I S T E N E R 〉———————————————-—--- */
-
 canvas.addEventListener("pointerdown", start, false);
 canvas.addEventListener("pointermove", draw, false);
 canvas.addEventListener("pointerup", stop, false);
 canvas.addEventListener("pointerout", stop, false);
 
-
 /* ----———————————————〈 F U N C T I O N S 〉———————————————-—--- */
 
 /*———————————---------* START *---------———————————*/
-
 function start(_event) { // prepare to draw
     isDrawing = true;
     let rect = canvas.getBoundingClientRect();
@@ -158,9 +129,7 @@ function start(_event) { // prepare to draw
         _event.clientY - canvas.getBoundingClientRect().top);
     _event.preventDefault();
 }
-
 /*———————————---------* DRAW *---------————————————*/
-
 function draw(_event) {  // actually draw
     if (isDrawing) {
         context.lineTo(_event.clientX - canvas.getBoundingClientRect().left, // line is drawn where clicked not on full x y axis
@@ -172,11 +141,10 @@ function draw(_event) {  // actually draw
         context.stroke();
     }
     _event.preventDefault();
-
 }
-
 /*——————————---------* STOP *---------—————————————*/
-
+// Picture is made when stop function is sctivated.
+// For each end of stroke Picture / Canvas params are updated
 function stop(_event) {
     if (isDrawing) {
         context.stroke();
@@ -190,15 +158,11 @@ function stop(_event) {
         index += 1;
         // console.log(restoreArray);
     }
-
+    // Picture is converted to URL Params und communicated to server with emit
     socket.emit('img', {img: canvas.toDataURL()});
-
 }
 
-
-
 /*——————————---------* CLEAR *---------————————————*/
-
 function clearCanvas() {
     context.fillStyle = startBackgroundColor;
     context.clearRect(0, 0, canvas.width, canvas.height);
@@ -208,9 +172,7 @@ function clearCanvas() {
     index = -1;
     console.log("♦—◊—◊〈successfully renewed canvas〉◊—◊—♦");
 }
-
 /*——————————---------* UNDO *---------————————————*/
-
 function undoLast() {
     if (index <= 0) {
         clearCanvas();
