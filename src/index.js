@@ -66,7 +66,6 @@ io.on("connection", (socket) => {
         console.log(user)
         if (user) {
             io.to(user.room).emit("message", generatemsg(`Admin'${user.username} A user  has left`, ''))
-
             io.to(user.room).emit("roomData", {
                 room: user.room,
                 users: getUserInRoom(user.room)
@@ -75,8 +74,7 @@ io.on("connection", (socket) => {
 
     })
 
-
 })
 server.listen(PORT, () => {
-    console.log("server s up" + PORT)
+    console.log("Server is up on port:" + PORT)
 })
